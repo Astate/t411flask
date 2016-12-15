@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+
+     {% block title %}
+    {% endblock %}
+
+     {% block content %}
+
+
+
+{% if query %}
+  <h1>Critère(s) recherché: {{ query }}</h1>
+
+<table class="table table-striped">
+{% for row in table %}
+  <tr>
+    <td>{{ row[1]|truncate(100) }}</td><td>{{ row[2] }}</td><td>{{ row[3] }}</td><td>{{ row[4] }}</td>
+    <td> <a href="{{ row[2] }}"><button type="button" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-download-alt"></span> download</button></a></td>
+</tr>
+{% endfor %}
+</table>
+{% else %}
+  <h1>Aucun critère trouvé</h1>
+{% endif %}
+
+
+       {% endblock %}
