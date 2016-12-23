@@ -5,10 +5,10 @@ from flask import render_template
 import requests
 import re
 from bs4 import BeautifulSoup
-from flask_cache import Cache
+#from flask_cache import Cache
 
 app = Flask(__name__)
-cache = Cache(app,config={'CACHE_TYPE': 'simple'})
+#cache = Cache(app,config={'CACHE_TYPE': 'simple'})
 
 def getHeaders():
 	headers = {
@@ -34,7 +34,7 @@ def torrent_list(query):
 	table = torrent_srch(r)
 	return render_template('query.html', query=query,  table=table)
 
-@cache.cached(timeout=3600)
+#@cache.cached(timeout=3600)
 @app.route('/top100')
 def torrent_top():
 
@@ -55,8 +55,6 @@ def torrent_srch(r):
 	href2 = [re.sub(r'nfo', r'download', q) for q in c]
 
 	dls = [td.text for td in soup.find_all('td', {'align': 'center'})]
-
-
 
 	bi = 0
 	size = []

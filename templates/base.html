@@ -3,7 +3,6 @@
   <title>T411 grabeur</title>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="../static/css/custom.css">
-      <link href="../static/css/radar.css" rel="stylesheet" />
 
    {% block style %}
     {% endblock %}
@@ -15,13 +14,14 @@
 
                 <form class="navbar-form navbar-right" action="{{ url_for('index') }}" method ="get">
             <div class="form-group">
-              <input type="text" class="form-control" name="recherche" placeholder="Recherche" >
+              <input type="text" class="form-control" name="recherche" placeholder="Recherche"  >
             </div>
-            <button type="submit" class="btn btn-default">Recherche</button>
+            <button type="submit" class="btn btn-default" onclick="loading();">Recherche</button>
           </form>
           </div>
 </div>
- <div class="container">
+   <div id="loading"></div>
+ <div class="container content">
    {% block title %}
     {% endblock %}
 
@@ -33,13 +33,9 @@
 
   	<script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
-<script src="../static/js/pace.min.js"></script>
+<script src="../static/js/custom.js"></script>
   {% block script %}
-<script>
-paceOptions = {
-startOnPageLoad: true
-}
-</script>
+
     {% endblock %}
 
 
