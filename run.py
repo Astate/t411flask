@@ -5,10 +5,8 @@ from flask import render_template
 import requests
 import re
 from bs4 import BeautifulSoup
-#from flask_cache import Cache
 
 app = Flask(__name__)
-#cache = Cache(app,config={'CACHE_TYPE': 'simple'})
 
 def getHeaders():
 	headers = {
@@ -34,7 +32,6 @@ def torrent_list(query):
 	table = torrent_srch(r)
 	return render_template('query.html', query=query,  table=table)
 
-#@cache.cached(timeout=3600)
 @app.route('/top100')
 def torrent_top():
 
