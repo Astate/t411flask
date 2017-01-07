@@ -15,7 +15,22 @@
 <table class="table table-striped">
 {% for row in table %}
   <tr>
-    <td>{{ row[1]|truncate(100) }}</td><td>{{ row[3] }}</td><td>{{ row[4] }}</td>
+    <td>{% if row[3] ==  '/torrents/search/?subcat=631' %}
+        <span class="glyphicon glyphicon-film"></span>
+        {% elif row[3] ==  '/torrents/search/?subcat=623' %}
+        <span class="glyphicon glyphicon-music"></span>
+        {% elif row[3] ==  '/torrents/search/?subcat=433' %}
+        <span class="glyphicon glyphicon-tasks"></span>
+        {% elif row[3] ==  '/torrents/search/?subcat=408' %}
+        <span class="glyphicon glyphicon-book"></span>
+         {% elif row[3] ==  '/torrents/search/?subcat=407' %}
+        <span class="glyphicon glyphicon-book"></span>
+        {% elif row[3] ==  '/torrents/search/?subcat=410' %}
+        <span class="glyphicon glyphicon-book"></span>
+        {% else %}
+         <span class="glyphicon glyphicon-star-empty"></span>
+        {% endif %}</td>
+    <td>{{ row[1]|truncate(100) }}</td><td>{{ row[4] }}</td><td>{{ row[5] }}</td>
     <td> <a href="{{ row[2] }}"><button type="button" class="btn btn-primary btn-xs"> <span class="glyphicon glyphicon-download-alt"></span> download</button></a></td>
 </tr>
 {% endfor %}
