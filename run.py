@@ -43,7 +43,7 @@ def torrent_top():
 
 def torrent_srch(r):
 
-    soup = BeautifulSoup(r.content, "html.parser")
+    soup = BeautifulSoup(r.content, "lxml")
 
     a = [a.get('href') for a in soup.find_all('a', href=re.compile(r'www\.t411\.li/torrents/'))]
     href = [q[23:] for q in a]
